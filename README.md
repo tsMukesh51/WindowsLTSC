@@ -18,7 +18,9 @@ Export-WindowsDriver -Online -Destination "C:\MyPCurrentDrivers"
 Get-ChildItem "C:\MyPCurrentDrivers" -Recurse -Filter "*.inf" | ForEach-Object { PNPUtil.exe /add-driver $_.FullName /install }
 ```
 
-6. To convert your evaluation (trial) verion to full version. Open CMD as administrator and run below command, then restart the computer.
+6. To convert your evaluation (trial) verion to full version. Download, extract and copy [LTSC SKUs.zip](./LTSC%20SKUs.zip) file to C:\Windows\System32\spp\tokens\skus\ folder.
+
+9. And open CMD as administrator and run below command, then restart the computer.
 ```
 cscript.exe %windir%\system32\slmgr.vbs /rilc
 cscript.exe %windir%\system32\slmgr.vbs /upk >nul 2>&1
